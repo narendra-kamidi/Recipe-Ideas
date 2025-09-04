@@ -1,0 +1,150 @@
+.container {
+    height: 60px;
+    width: 100%;
+    padding: 0.25rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Left Section - Logo */
+.left {
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: bold;
+    color: #e63946;
+    transition: color 0.3s ease-in-out;
+}
+
+.left:hover {
+    color: #ffb703;
+}
+
+/* Center Search Bar */
+.centerSearch {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 0.3rem 0.5rem;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease-in-out, border 0.2s ease-in-out;
+    width: 40%;
+}
+
+.centerSearch:focus-within {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 1px solid #ffb703;
+}
+
+.centerSearch > input {
+    outline: none;
+    border: none;
+    background-color: white;
+    padding: 0.4rem 0.5rem;
+    font-size: 16px;
+    width: 100%;
+}
+
+.centerSearch > button {
+    border: none;
+    background: #ffb703;
+    color: white;
+    font-size: 18px;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    padding: 0.4rem;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+.centerSearch > button:hover {
+    background: #fb8500;
+}
+
+/* Right Section - Navigation */
+.rightLinks {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 2rem;
+}
+
+.listItem {
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.listItem a {
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+}
+
+.listItem a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: #ffb703;
+    transition: width 0.3s ease-in-out;
+}
+
+.listItem a:hover::after {
+    width: 100%;
+}
+
+.listItem:hover {
+    color: #ffb703;
+    transform: translateY(-2px);
+}
+
+.mobileNav {
+    display: none; /* Hide by default on desktop */
+}
+
+/* --- Media Queries for Responsiveness --- */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0.25rem 1rem;
+    }
+    .centerSearch {
+        width: 50%;
+    }
+    .rightLinks {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        height: auto;
+    }
+    .wrapper {
+        justify-content: space-between;
+    }
+    .centerSearch,
+    .rightLinks {
+        display: none; /* Hide on mobile */
+    }
+    .mobileNav {
+        display: block; /* Show on mobile */
+    }
+}
